@@ -17,8 +17,30 @@
 }
 
 .form-holder {
+	
 	.form-success,
 	.form-error {
 		display: none;
+		text-align: center;
+		padding: 46px 10px;
+		background: $input-background;
+
+		h2 {
+			color: $black;
+		}
+
+		p {
+			font-size: 18px;
+			color: $black;
+			font-weight: 300;
+		}
+
+		a {
+			font-size: 18px;
+		}
+
+		img {
+			margin-bottom: 20px;
+		}
 	}
 }

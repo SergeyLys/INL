@@ -60,7 +60,21 @@ import AOS from 'aos';
                         }, 3200);
 
                     }).fail(function() {
-                        console.log('fail');
+                        $form.hide(200);
+                        $form[0].reset();
+
+                        setTimeout(function() {
+                            $form.parent().find('.form-error').show(200);
+                        }, 200);
+
+                        $form.parent().find('.form-error').find('a').on('click', function(e) {
+                            e.preventDefault();
+                            $form.parent().find('.form-error').hide(200);
+
+                            setTimeout(function() {
+                                $form.show(200);
+                            }, 200);
+                        })
                     });
                 }
             });

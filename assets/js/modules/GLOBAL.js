@@ -13,6 +13,61 @@ import jQueryBridget from 'jquery-bridget';
 import masonry from 'masonry-layout';
 import AOS from 'aos';
 
+(function($) {
+    $.fn.formSubmit = function() {
+        $(this).each(function() {
+            var that = this;
+            $(this).validate({
+                rules: {
+                    name: "required",
+                    email: {
+                        required: true,
+                        email: true
+                    }
+                },
+                messages: {
+                    name: formValidateSettings.name,
+                    email: {
+                        required: formValidateSettings.emailEmpty,
+                        email: formValidateSettings.emailIncorrect
+                    }
+                },
+
+                submitHandler: function(form, e) {
+                    e.preventDefault();
+                    var $form = $(that);
+                    $.ajax({
+                        type: $form.attr('method'),
+                        url: $form.attr('action'),
+                        dataType: 'json',
+                        data: $form.serialize()
+                    }).done(function(data) {
+
+                        $form.hide(200);
+                        $form[0].reset();
+
+                        setTimeout(function() {
+                            $form.parent().find('.form-success').show(200);
+                        }, 200);
+
+                        setTimeout(function() {
+                            $form.parent().find('.form-success').hide(200);
+                        }, 3000);
+
+                        setTimeout(function() {
+                            $form.parent().find('.form-success');
+                            $form.show(200);
+                        }, 3200);
+
+                    }).fail(function() {
+                        console.log('fail');
+                    });
+                }
+            });
+        })
+    }
+})(jQuery);
+
 export default {
 
     init(){
@@ -22,7 +77,7 @@ export default {
         this.scrollAnimations();
         this.masonry();
         this.formValidate();
-        this.postFormData();
+        //this.postFormData();
     },
 
     headerFunctions () {
@@ -106,39 +161,13 @@ export default {
     },
 
     formValidate() {
-        $('form').validate({
-            rules: {
-                name: "required",
-                email: {
-                    required: true,
-                    email: true
-                }
-            },
-            messages: {
-                name: formValidateSettings.name,
-                email: {
-                    required: formValidateSettings.emailEmpty,
-                    email: formValidateSettings.emailIncorrect
-                }
-            }
-        });
+
+        $('form').formSubmit();
+
     },
 
     postFormData() {
-        $('.contact-form').on('submit', function(e) {
-            e.preventDefault();
-            var $form = $(this);
-            $.ajax({
-                type: $form.attr('method'),
-                url: $form.attr('action'),
-                dataType: 'json',
-                data: $form.serialize()
-            }).done(function(data) {
-                console.log(data);
-            }).fail(function() {
-                console.log('fail');
-            });
-        });
+
     }
 
 };

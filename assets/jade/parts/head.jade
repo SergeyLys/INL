@@ -40,3 +40,9 @@ head
     link(rel="stylesheet", href="../css/global.css")
     link(rel="stylesheet", href="../css/base64-fonts.min.css")
     block script
+    script(type='text/javascript').
+        var formValidateSettings = {
+            name: 'Это поле обязательно для заполнения',
+            emailEmpty: 'Это поле обязательно для заполнения',
+            emailIncorrect: 'Введите корректный адресс'
+        };

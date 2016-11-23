@@ -70,10 +70,17 @@ $input-error-font-weight: $global-weight-bold !default;
   @if $abide-labels {
     // Error class for labels of invalid outputs
     label.error {
-      color: $form-label-color-invalid;
+      color: $white;
       font-size: 12px;
       font-family: $body-font-family;
-      margin-top: -20px;
+      margin-top: -23px;
+      background: $form-label-color-invalid;
+      border-radius: 0 0 4px 4px;
+      padding: 5px 20px;
+
+      + input {
+        margin-top: 20px;
+      }
     }
   }
 

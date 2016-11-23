@@ -13,6 +13,7 @@ import jQueryBridget from 'jquery-bridget';
 import masonry from 'masonry-layout';
 import AOS from 'aos';
 
+
 (function($) {
     $.fn.formSubmit = function() {
         $(this).each(function() {

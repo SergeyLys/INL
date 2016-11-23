@@ -1,0 +1,16 @@
+@import "libs/variables";
+@import "libs/mixins";
+@import "libs/foundation/foundation";
+@import "libs/aos/aos";
+@import "libs/slick/slick";
+@import "libs/slick/slick-theme";
+
+@import "components/common";
+@import "components/header";
+@import "components/footer";
+
+/**
+**	Home page
+*/
+
+@import 'pages/home';

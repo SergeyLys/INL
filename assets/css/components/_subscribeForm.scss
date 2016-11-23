@@ -1,0 +1,24 @@
+.b-subscribe-form {
+	padding-top: 60px;
+	padding-bottom: 40px;
+
+	@include breakpoint(medium) {
+		padding-top: 90px;
+		padding-bottom: 80px;
+	}
+
+	.button {
+		margin-top: 20px;
+	}
+}
+
+.subscribe-title {
+	margin-bottom: 30px;
+}
+
+.form-holder {
+	.form-success,
+	.form-error {
+		display: none;
+	}
+}

@@ -1,53 +1,42 @@
-.container-fluid.header-wrap
-	header.blocks__inner.site-header
-		.burger
-		.b-logo
-			a(href="#").
-				<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-					 width="31.4915px" height="38.7522px" viewBox="0 0 31.4915 38.7522" style="enable-background:new 0 0 31.4915 38.7522;"
-					 xml:space="preserve">
-				<style type="text/css">
-					.st0{fill:#231F20;}
-				</style>
-				<path class="st0" d="M16.4913,38.7522V21.7877c1.8084-0.3516,3.1742-1.9425,3.1742-3.8536c0-2.1696-1.7584-3.9277-3.9274-3.9277
-					c-2.1691,0-3.9275,1.7581-3.9275,3.9277c0,1.8802,1.3221,3.4503,3.087,3.8355v16.8956L1.5,26.4949L0,0c0,0,7.8525,2.59,15.7152,2.59
-					C23.5983,2.59,31.4915,0,31.4915,0l-1.5,26.4949L16.4913,38.7522z"/>
-				</svg>
-		.header_menu
-			.header_menu--bottom
-				ul
-					li.has-sub
-						a(href="#") Профессиональная компетенция
-						ul.sub-menu
-							li: a(href='#') Разрешение корпоративных споров
-							li: a(href='#') Разрешение споров в сфере недвижимости
-							li: a(href='#') Повышение эффективности судебного представительства
-							li: a(href='#') Независимый консалтинг правовых конфликтов
-					li
-						a(href="#") Квалификация
-					li
-						a(href="#") Обо мне
-					li
-						a(href="#") Контакты
-			.header_menu--top
-				ul
-					li
-						a(href="#") События
-					li
-						a(href="#") СМИ
-					li
-						a(href="#") Видео
-					li
-						a(href="#") Книги
-					li
-						a(href="#") Проекты
-					li
-						a(href="#") Отзывы
-
-		form.search-form
-			input(type="text" placeholder='Поиск по сайту')
-			button.btn.btn--inverse Найти
-		.b-search
-			//.search-wrapper.search
-			//	.element#one
-			//	.element#two
+header.site-header
+  .row.expanded.site-menu-row
+    .small-12.columns
+      a(href="#").toggle-menu
+        span.sandwich
+          span.sw-topper
+          span.sw-bottom
+          span.sw-footer
+    .small-12.columns
+      nav.site-navigation
+        .site-menu
+          .site-menu--tablet
+            .nav-icon
+              img(src="../images/icon-inst.png", alt="icon")
+            ul.menu-concept
+              //- li: a(href='#') Сила личности
+              //- li: a(href='#') Сила команды
+              //- li: a(href='#') Сила стратегии
+              li: a(href='#tasks' data-anchor) Институт
+              li: a(href='#practice' data-anchor) Практики
+              li: a(href='#concept' data-anchor) Концепции
+              li: a(href='#experts' data-anchor) Эксперты
+              li: a(href='#subscribe' data-anchor) Новости
+              li: a(href='#subscribe' data-anchor) Подписка
+            //- ul.menu-inside
+            //-   li: a(href='#') Эксперты
+            //-   li.has-sub
+            //-     a(href='#') Услуги
+            //-     ul.sub-menu.popup
+            //-       li: a(href="#") Личный и командный консалтинг
+            //-       li: a(href="#") Тренинги и обучающие программы
+            //-       li: a(href="#") Вебинары
+            //-       li: a(href="#") Коучинг юридических проектов
+            //-   li: a(href='#') События
+            //-   li: a(href='#') Блог
+            //-   li: a(href='#') Контакты
+          .site-authorisation.hide-for-medium    
+            a(href="#").button.secondary Вход
+            a(href="#").button Регистрация
+      .site-authorisation.show-for-medium
+          a(href="#").button.secondary Вход
+          a(href="#").button Регистрация    

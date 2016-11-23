@@ -1,0 +1,72 @@
+.home-book {
+	min-height: 39.1666666667vh;
+	background: #F5EDE8;
+	display: flex;
+}
+
+.b-book {
+	text-align: center;
+}
+
+.b-book_description {
+	// display: flex;
+	// justify-content: center;
+	// align-items: center;
+	// flex-direction: column;
+	position: relative;
+	text-align: center;
+	padding-top: 90px;
+	padding-bottom: 40px;
+	
+	@include breakpoint(medium) {
+		text-align: left;
+	}
+
+	@include breakpoint(large) {
+		text-align: center;
+	}
+}
+
+.b-book_title {
+	h2 {
+		margin-bottom: 20px;
+	}
+}
+
+.b-book_about {
+	p {
+		font-size: 16px;
+		line-height: 20px;
+		margin-bottom: 20px;
+	}
+
+	@include breakpoint(large) {
+		padding: 0 75px;
+	}
+}
+
+.b-book_more {
+	width: 100%;
+
+	.button {
+		margin-bottom: 0;
+		margin-top: 10px;
+		font-size: 14px;
+	}
+}
+
+.close-button {
+	position: absolute;
+	right: calc(50% - 25px);
+	top: 20px;
+	width: 50px;
+	height: 50px;
+	background: url('../images/icon-close.png') no-repeat center;
+	cursor: pointer;
+	z-index: 1;
+
+	@include breakpoint(medium) {
+		right: 40px;
+		top: 40px;
+	}
+}

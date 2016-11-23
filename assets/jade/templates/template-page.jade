@@ -1,0 +1,33 @@
+- var HOMEPAGE = false;
+block variables
+
+doctype html
+html(lang="ru")
+    include ../parts/head
+    body
+
+        // Document wrapper
+        // =============================================
+        .wrapper
+
+            if HOMEPAGE
+                include ../components/homeBook
+
+            // Header
+            // =============================================
+            include ../components/header
+            // End Aside menu
+
+            // Main
+            // =============================================
+            block site-main
+            // End Main
+
+            // Footer
+            // =============================================
+            include ../components/footer
+            // End Footer
+
+        // End Document wrapper
+
+        include ../parts/scripts

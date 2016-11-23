@@ -1,0 +1,132 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.site-main {
+  flex-grow: 1;
+  z-index: 1;
+  opacity: 1;
+  transition: opacity .3s ease;
+}
+
+.colored {
+  color: $primary-color;
+}
+
+.bold {
+  font-family: $body-font-family-secondary;
+}
+
+.popup {
+  border-radius: 6px;
+  box-shadow: 0 20px 50px 0 rgba($black, .33);
+  padding: 25px 30px;
+  background: $white;
+}
+
+.content-align-middle {
+  display: flex;
+  align-items: center;
+}
+
+.section-title {
+  text-align: center;
+  margin-top: 45px;
+  margin-bottom: 20px;
+
+  &.big {
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-top: 50px;
+    padding-bottom: 50px;
+
+    h2 {
+      font-size: 36px;
+      line-height: 40px;
+      font-family: $secondary-font-regular;
+
+      @include breakpoint(medium) {
+        font-size: 48px;
+      }
+    }
+  }
+}
+
+.section-divider {
+  position: relative;
+  height: 5px;
+  margin-left: auto;
+  margin-right: auto;
+
+  &.has-img {
+    margin: 95px 0;
+
+    .b-img {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%) translateY(-60%);
+      z-index: 1;
+      width: 16.6666667%;
+      text-align: center;
+
+      &:before {
+        content: '';
+        position: absolute;
+        width: 200%;
+        height: 100%;
+        background: $white;
+        left: -50%;
+        top: 0;
+        z-index: -1;
+      }
+    }
+  }
+
+  &.fullWidth {
+    &:before,
+    &:after {
+      @include breakpoint(large) {
+        animation: fullWidth 1s ease-out;
+        width: 100%;
+      }
+    }
+  }
+
+  &:before,
+  &:after {
+    content: '';
+    position: absolute;
+    height: 1px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba($black, .2);
+    transition-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1);
+    transition-duration: 800ms;
+    transition-property: all;
+    //width: 100%;
+    //
+    //@include breakpoint(large) {
+    //  width: 0;
+    //}
+  }
+
+  &:before {
+    top: 0;
+  }
+
+  &:after {
+    bottom: 0;
+  }
+}
+
+.background-dark {
+  background: $black;
+  color: $medium-gray;
+}
+
+.background-light {
+  background: $medium-gray;
+  color: $black;
+}

@@ -13,9 +13,9 @@ var options = {
     },
 
     styles:{
-        src: ['./assets/css/main-style.sass', './assets/css/base64-fonts.sass', './assets/css/critical.sass', './assets/css/pages/**/*.sass'],
+        src: ['./assets/css/global.scss', './assets/css/base64-fonts.scss', './assets/css/pages/**/*.scss'],
         dest:'./dist/css',
-        watch: './assets/css/**/*.sass'
+        watch: './assets/css/**/*.scss'
     },
 
     images:{

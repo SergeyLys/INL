@@ -1,0 +1,114 @@
+.b-practice {
+  padding-bottom: 70px;
+}
+
+.b-practice_title {
+  text-align: center;
+  position: relative;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  width: auto;
+
+  svg {
+    position: static;
+    z-index: -1;
+
+    .st0 {
+      stroke: rgba($black, 1);
+
+      @include breakpoint(medium) {
+        stroke: rgba($black, .3);
+      }
+    }
+
+    @include breakpoint(medium) {
+      position: absolute;
+      margin-left: calc(33.33333% - 30px);
+      display: block;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    @include breakpoint(large) {
+      margin-left: calc(16.6666666667% - 30px);
+    }
+  }
+
+  @include breakpoint(medium) {
+    padding-top: 80px;
+    padding-bottom: 80px;
+  }
+
+  @include breakpoint(large) {
+    padding-top: 100px;
+    padding-bottom: 100px;
+
+    h2 {
+      // position: absolute;
+      // top: 50%;
+      // left: 50%;
+      // transform: translateX(-50%) translateY(-50%);
+    }
+  }
+
+  h2 {
+    margin-bottom: 30px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+
+    @include breakpoint(medium) {
+      position: static;
+      transform: none;
+      width: 50%;
+      margin: auto;
+      margin-bottom: 70px;
+    }
+  }
+}
+
+.b-practice_svg {
+  position: relative;
+}
+
+.b-practice_text--left,
+.b-practice_text--right {
+
+  @include breakpoint(medium) {
+    width: calc(100% + 30px);
+    // position: absolute;
+  }
+}
+
+.b-practice_text--left {
+  left: 0;
+  bottom: 0;
+
+  @include breakpoint(medium) {
+    bottom: 100px;
+    text-align: right;
+  }
+}
+
+.b-practice_text--right {
+  right: 0;
+  top: 0;
+
+  @include breakpoint(medium) {
+    margin-left: -30px;
+    top: 100px;
+    text-align: left;
+  }
+}
+
+.b-subscribe {
+  margin-bottom: 80px;
+
+  .button {
+    margin-bottom: 0;
+  }
+
+  @include breakpoint(medium) {
+    margin-bottom: 0;
+  }
+}

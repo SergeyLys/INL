@@ -1,0 +1,19 @@
+section.b-subscribe-form#subscribe
+    .row
+        .small-12.medium-6.columns
+            .subscribe-title
+                h2 #[span.colored Подписывайтесь] на обновления в событиях института и новости литигаторской деятельности
+            .row
+                .small-12.medium-9.columns
+                    .subscribe-descr
+                        p С подпиской вы получите эксклюзивные вебинары, самые свежие конференции, курсы литигаторства, закрытые материалы
+        .small-12.medium-6.columns
+            .form-holder
+                .form-success
+                    p success
+                .form-error
+                    p error
+                form.contact-form(method='GET' action='../../example.json')
+                    input(type="text" placeholder="Ваше имя" name='name' required)
+                    input(placeholder="Ваша электронная почта" type="email" name="email" required)
+                    button.button Подписаться

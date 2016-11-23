@@ -1,0 +1,24 @@
+extends templates/template-page
+
+block variables
+  - HOMEPAGE = true;
+
+block title
+  title Title
+
+block script
+  script(type='text/javascript').
+    var vars = {
+        ajaxUrl: "",
+        page: 'home_page'
+    };
+
+block site-main
+  main.site-main
+    include components/homeTasks
+    include components/homeNumeric
+    include components/homePractice
+    include components/homeConcept
+    include components/homeExperts
+    include components/homeNews
+    include components/subscribeForm

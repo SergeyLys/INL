@@ -1,108 +1,173 @@
 /**
-*      Global functions
-*/
+ *      Global functions
+ */
 
+global.jQuery = require('jquery');
+global.$ = global.jQuery;
+
+import 'gsap';
+import '../libs/MorphSVGPlugin.min';
+import '../libs/jquery.validate';
+import slick from "slick-carousel";
+import jQueryBridget from 'jquery-bridget';
+import masonry from 'masonry-layout';
+import AOS from 'aos';
+
+(function($) {
+    $.fn.formSubmit = function() {
+        $(this).each(function() {
+            var that = this;
+            $(this).validate({
+                rules: {
+                    name: "required",
+                    email: {
+                        required: true,
+                        email: true
+                    }
+                },
+                messages: {
+                    name: formValidateSettings.name,
+                    email: {
+                        required: formValidateSettings.emailEmpty,
+                        email: formValidateSettings.emailIncorrect
+                    }
+                },
+
+                submitHandler: function(form, e) {
+                    e.preventDefault();
+                    var $form = $(that);
+                    $.ajax({
+                        type: $form.attr('method'),
+                        url: $form.attr('action'),
+                        dataType: 'json',
+                        data: $form.serialize()
+                    }).done(function(data) {
+
+                        $form.hide(200);
+                        $form[0].reset();
+
+                        setTimeout(function() {
+                            $form.parent().find('.form-success').show(200);
+                        }, 200);
+
+                        setTimeout(function() {
+                            $form.parent().find('.form-success').hide(200);
+                        }, 3000);
+
+                        setTimeout(function() {
+                            $form.parent().find('.form-success');
+                            $form.show(200);
+                        }, 3200);
+
+                    }).fail(function() {
+                        console.log('fail');
+                    });
+                }
+            });
+        })
+    }
+})(jQuery);
 
 export default {
 
-  init(){
-    this.headerFunctions();
-  },
+    init(){
+        this.headerFunctions();
+        this.scrollDown();
+        this.scrollToAnchor();
+        this.scrollAnimations();
+        this.masonry();
+        this.formValidate();
+        //this.postFormData();
+    },
 
-  headerFunctions () {
-    var trigger = $('.site-header').offset().top;
-
-    $('li.has-sub a').on('click', function(e) {
-      e.preventDefault();
-      if ($(this).parent().find('.sub-menu').length && $(window).width() <= 1023) {
-        $(this).parent().find('.sub-menu').slideToggle();
-      }
-    });
-
-    $('.burger').on('click', function() {
-      $('.site-header').toggleClass('active');
-      $('body').toggleClass('menu-open');
-
-      if($(window).width() <= 1023) {
-        $('.header_menu').toggleClass('active');
-      }
-    });
-
-    $(window).on('scroll', function() {
-      if ($('.header_menu').hasClass('active') && $(window).width() >= 1024 || $('.site-header').hasClass('active') && !$('.search-form').hasClass('active')) {
-        $('.site-header').removeClass('active');
-        $('.header_menu').removeClass('active');
-      }
-      if ($(window).scrollTop() > trigger) {
-        $('.site-header').addClass('fixed');
-        $('body').css({
-          'padding-top': $('.site-header').height()
+    headerFunctions () {
+        $('.site-navigation').on('click', () => {
+            $('.toggle-menu').removeClass('active');
+            $('.site-navigation').removeClass('active');
+            $('body').removeClass('menu-open');
         });
-        $('.notify-wrap').css({
-          'top': '-'+ $('.site-header').height() + 'px'
-        });
-      } else if ($(window).scrollTop() <= trigger) {
-        $('.site-header').removeClass('fixed');
-        $('body').css({
-          'padding-top': 0
-        });
-        $('.notify-wrap').css({
-          'top': 0
-        });
-      }
-    });
 
-    $(window).on('resize', function() {
-      if($(window).width() <= 1023 && $('.site-header').hasClass('active')) {
-        $('.header_menu').addClass('active');
-        $('body').addClass('menu-open');
-      } else if ($(window).width() >= 1024) {
-        $('body').removeClass('menu-open');
-      }
-    })
+        $('.menu-concept, .menu-inside, .site-authorisation').on('click', (e) => {
+            e.stopPropagation();
+        });
 
-    $('.b-search').on('click', function() {
-      $(this).toggleClass('active');
-      $('.search-form').toggleClass('active');
-      $('.site-header').toggleClass('active').toggleClass('search-open');
-    });
-  },
+        $('.toggle-menu').on('click', (e) => {
+            e.preventDefault();
 
-  sharrre() {
-    if ($('.feed__list .fa-twitter').length) {
-      $('.feed__list .fa-twitter').sharrre({
-        share: {twitter: true},
-        url: $(this).data('url') != 'undefined' ? $(this).data('url') : '',
-        text: $(this).data('text') != 'undefined' ? $(this).data('text') : '',
-        enableHover: false,
-        enableCounter: false,
-        template: '<span></span>',
-        click: function (api, options) {
-          api.simulateClick();
-          api.openPopup('twitter');
+            $('body, html').animate({
+                scrollTop: $('.site-header').offset().top
+            }, 500);
+
+            $('.toggle-menu').toggleClass('active');
+            $('.site-navigation').toggleClass('active');
+            $('body').toggleClass('menu-open');
+
+        });
+
+        $('.has-sub').on('click', function() {
+            $(this).find('.sub-menu').stop().slideToggle();
+        });
+    },
+
+    scrollDown() {
+        $('.scroll-down').on('click', function() {
+            var position = $(this).closest('section').offset().top + $(this).closest('section').prop('scrollHeight');
+
+            $('body, html').animate({
+                'scrollTop': position
+            }, 800)
+        });
+    },
+
+    scrollToAnchor() {
+        if($('[data-anchor]').length) {
+            $('[data-anchor]').each(function(el) {
+                $(this).on('click', function(e) {
+                    e.preventDefault();
+                    var anchor = $($(this).attr('href'));
+
+                    if(anchor.length) {
+                        $('body, html').animate({
+                            'scrollTop': anchor.offset().top
+                        }, 800)
+                    }
+
+                    if ($('body').hasClass('menu-open')) {
+                        $('.toggle-menu').removeClass('active');
+                        $('.site-navigation').removeClass('active');
+                        $('body').removeClass('menu-open');
+                    }
+
+                })
+            })
         }
-      });
+    },
+
+    scrollAnimations() {
+        AOS.init({
+            duration: 800,
+            easing: 'ease',
+            offset: 25
+        });
+    },
+
+    masonry() {
+        jQueryBridget( 'masonry', masonry);
+        $('.masonry-grid').masonry({
+            itemSelector: '.masonry-item',
+            columnWidth: '.masonry-item',
+            gutter: 0
+        });
+    },
+
+    formValidate() {
+
+        $('form').formSubmit();
+
+    },
+
+    postFormData() {
+
     }
-    if ($('.feed__list .fa-facebook').length) {
-      $('.feed__list .fa-facebook').sharrre({
-        share: {facebook: true},
-        url: $(this).data('url') != 'undefined' ? $(this).data('url') : '',
-        text: $(this).data('text') != 'undefined' ? $(this).data('text') : '',
-        enableHover: false,
-        enableCounter: false,
-        template: '<span></span>',
-        click: function (api, options) {
-          api.simulateClick();
-          api.openPopup('facebook');
-        }
-      });
-    }
-    //if ($('.n-vk').length) {
-    //  $('.n-vk').html(VK.Share.button(window.location.href, {
-    //    noparse: true,
-    //    type: 'custom',
-    //    text: '<span class="fa fa-vk"></span>'
-    //  }));
-    //}
-  }
+
 };

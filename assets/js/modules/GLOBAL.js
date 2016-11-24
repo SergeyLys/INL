@@ -81,6 +81,7 @@ import AOS from 'aos';
                                 $form.parent().find('.form-error').hide(200);
 
                                 setTimeout(function() {
+                                    $form.parent().find('.form-error').remove();
                                     $form.show(200);
                                 }, 200);
                             })

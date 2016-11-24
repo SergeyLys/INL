@@ -2028,7 +2028,7 @@ global.$ = global.jQuery;
                             $form[0].reset();
 
                             var formSuccess = $('<div></div>').addClass('form-success');
-                            formSuccess.html('<img src="../images/icon-success.png" alt="success"> <h2> <span>' + data.title + '</span>, спасибо!</h2> <p>' + data.message + '</p>');
+                            formSuccess.html('<img src="../images/icon-success.png" alt="success"> <h2> <span>' + data.title + '</span>, ' + formValidateSettings.thanks + '</h2> <p>' + data.message + '</p>');
                             $form.parent().append(formSuccess);
 
                             setTimeout(function () {

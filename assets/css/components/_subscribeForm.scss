@@ -27,6 +27,10 @@
 
 		h2 {
 			color: $black;
+			
+			span {
+				text-transform: capitalize;
+			}
 		}
 
 		p {

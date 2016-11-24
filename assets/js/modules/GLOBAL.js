@@ -43,25 +43,56 @@ import AOS from 'aos';
                         data: $form.serialize()
                     }).done(function(data) {
 
-                        $form.hide(200);
-                        $form[0].reset();
+                        console.log(data)
 
-                        setTimeout(function() {
-                            $form.parent().find('.form-success').show(200);
-                        }, 200);
+                        if (data.success == true) {
+                            $form.hide(200);
+                            $form[0].reset();
 
-                        setTimeout(function() {
-                            $form.parent().find('.form-success').hide(200);
-                        }, 3000);
+                            var formSuccess = $('<div></div>').addClass('form-success');
+                            formSuccess.html('<img src="../images/icon-success.png" alt="success"> <h2> <span>'+ data.title +'</span>, спасибо!</h2> <p>'+ data.message +'</p>');
+                            $form.parent().append(formSuccess);
 
-                        setTimeout(function() {
-                            $form.parent().find('.form-success');
-                            $form.show(200);
-                        }, 3200);
+                            setTimeout(function() {
+                                $form.parent().find('.form-success').show(200);
+                            }, 200);
+
+                            setTimeout(function() {
+                                $form.parent().find('.form-success').hide(200);
+                            }, 3000);
+
+                            setTimeout(function() {
+                                $form.parent().find('.form-success');
+                                $form.show(200);
+                            }, 3200);
+                        } else {
+                            $form.hide(200);
+
+                            var formError = $('<div></div>').addClass('form-error');
+                            formError.html('<img src="../images/icon-error.png" alt="success"> <h2>'+ data.title +'</h2> <p>'+ data.message +'</p><a href="#">Попробовать еще раз</a>');
+                            $form.parent().append(formError);
+
+                            setTimeout(function() {
+                                $form.parent().find('.form-error').show(200);
+                            }, 200);
+
+                            $form.parent().find('.form-error').find('a').on('click', function(e) {
+                                e.preventDefault();
+                                $form.parent().find('.form-error').hide(200);
+
+                                setTimeout(function() {
+                                    $form.show(200);
+                                }, 200);
+                            })
+                        }
+
 
                     }).fail(function() {
                         $form.hide(200);
-                        $form[0].reset();
+
+                        var formError = $('<div></div>').addClass('form-error');
+                        formError.html('<img src="../images/icon-error.png" alt="success"> <h2>'+ data.title +'</h2> <p>'+ data.message +'</p><a href="#">Попробовать еще раз</a>');
+                        $form.parent().append(formError);
 
                         setTimeout(function() {
                             $form.parent().find('.form-error').show(200);

@@ -62,6 +62,7 @@ import AOS from 'aos';
                             }, 3000);
 
                             setTimeout(function() {
+                                $form.parent().find('.form-success').remove();
                                 $form.parent().find('.form-success');
                                 $form.show(200);
                             }, 3200);
@@ -69,7 +70,7 @@ import AOS from 'aos';
                             $form.hide(200);
 
                             var formError = $('<div></div>').addClass('form-error');
-                            formError.html('<img src="../images/icon-error.png" alt="success"> <h2>'+ data.title +'</h2> <p>'+ data.message +'</p><a href="#">Попробовать еще раз</a>');
+                            formError.html('<img src="../images/icon-error.png" alt="success"> <h2>'+ data.title +'</h2> <p>'+ data.message +'</p><a href="#">'+formValidateSettings.send_again+'</a>');
                             $form.parent().append(formError);
 
                             setTimeout(function() {
@@ -92,7 +93,7 @@ import AOS from 'aos';
                         $form.hide(200);
 
                         var formError = $('<div></div>').addClass('form-error');
-                        formError.html('<img src="../images/icon-error.png" alt="success"> <h2>'+ data.title +'</h2> <p>'+ data.message +'</p><a href="#">Попробовать еще раз</a>');
+                        formError.html('<img src="../images/icon-error.png" alt="success"> <h2>'+ data.title +'</h2> <p>'+ data.message +'</p><a href="#">'+formValidateSettings.send_again+'</a>');
                         $form.parent().append(formError);
 
                         setTimeout(function() {
@@ -104,6 +105,7 @@ import AOS from 'aos';
                             $form.parent().find('.form-error').hide(200);
 
                             setTimeout(function() {
+                                $form.parent().find('.form-error').remove();
                                 $form.show(200);
                             }, 200);
                         })

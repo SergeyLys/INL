@@ -1,5 +1,5 @@
 {
-  "success": false,
+  "success": true,
   "title": "заголовок над сообщением",
   "message": "сообщение",
   "errors": []

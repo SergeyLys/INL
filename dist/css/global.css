@@ -4788,7 +4788,7 @@ body[data-aos-easing='ease-in-out-quart'] [data-aos],
 
     content: '';
 
-    background: url('../images/icon-bottom-arrow.png') no-repeat center;
+    background: url('/assets/images/icon-bottom-arrow.png') no-repeat center;
     background-size: 100%;
 }
 
@@ -5049,7 +5049,7 @@ body[data-aos-easing='ease-in-out-quart'] [data-aos],
 
     cursor: pointer;
 
-    background: url('../images/icon-close.png') no-repeat center;
+    background: url('/assets/images/icon-close.png') no-repeat center;
 }
 
 .b-tasks
@@ -5197,7 +5197,7 @@ body[data-aos-easing='ease-in-out-quart'] [data-aos],
 
     content: '';
 
-    background: url('../images/icon-tooltip.png') no-repeat center;
+    background: url('/assets/images/icon-tooltip.png') no-repeat center;
 }
 
 .tooltip .popup
@@ -5255,7 +5255,7 @@ body[data-aos-easing='ease-in-out-quart'] [data-aos],
 
     content: '';
 
-    background: url('../images/icon-scrolldown.png') no-repeat center;
+    background: url('/assets/images/icon-scrolldown.png') no-repeat center;
 }
 
 .scroll-down:after
@@ -5321,7 +5321,7 @@ body[data-aos-easing='ease-in-out-quart'] [data-aos],
 
     content: '';
 
-    background: url('../images/inl-index-fig-shadow2.png') no-repeat left bottom;
+    background: url('/assets/images/inl-index-fig-shadow2.png') no-repeat left bottom;
 }
 
 .numeric-grid .numeric-grid_item .number span
@@ -5380,7 +5380,7 @@ body[data-aos-easing='ease-in-out-quart'] [data-aos],
 
     content: '';
 
-    background: url('../images/pattern-task.png');
+    background: url('/assets/images/pattern-task.png');
 }
 
 .b-practice
@@ -6063,7 +6063,7 @@ body[data-aos-easing='ease-in-out-quart'] [data-aos],
     width: 55px;
     height: 55px;
 
-    background: url('../images/slider-arrow.png') no-repeat center;
+    background: url('/assets/images/slider-arrow.png') no-repeat center;
 }
 
 .expert-slider .slick-next:before
@@ -6081,7 +6081,7 @@ body[data-aos-easing='ease-in-out-quart'] [data-aos],
     -webkit-transform: rotate(180deg) translateY(50%);
             transform: rotate(180deg) translateY(50%);
 
-    background: url('../images/slider-arrow.png') no-repeat center;
+    background: url('/assets/images/slider-arrow.png') no-repeat center;
 }
 
 .expert-slider .slick-prev:before

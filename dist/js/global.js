@@ -2028,7 +2028,7 @@ global.$ = global.jQuery;
                             $form[0].reset();
 
                             var formSuccess = $('<div></div>').addClass('form-success');
-                            formSuccess.html('<img src="../images/icon-success.png" alt="success"> <h2> <span>' + data.title + '</span>, ' + formValidateSettings.thanks + '</h2> <p>' + data.message + '</p>');
+                            formSuccess.html('<img src="/assets/images/icon-success.png" alt="success"> <h2> <span>' + data.title + '</span>, ' + formValidateSettings.thanks + '</h2> <p>' + data.message + '</p>');
                             $form.parent().append(formSuccess);
 
                             setTimeout(function () {
@@ -2048,7 +2048,7 @@ global.$ = global.jQuery;
                             $form.hide(200);
 
                             var formError = $('<div></div>').addClass('form-error');
-                            formError.html('<img src="../images/icon-error.png" alt="success"> <h2>' + data.title + '</h2> <p>' + data.message + '</p><a href="#">' + formValidateSettings.send_again + '</a>');
+                            formError.html('<img src="/assets/images/icon-error.png" alt="success"> <h2>' + data.title + '</h2> <p>' + data.message + '</p><a href="#">' + formValidateSettings.send_again + '</a>');
                             $form.parent().append(formError);
 
                             setTimeout(function () {
@@ -2069,7 +2069,7 @@ global.$ = global.jQuery;
                         $form.hide(200);
 
                         var formError = $('<div></div>').addClass('form-error');
-                        formError.html('<img src="../images/icon-error.png" alt="success"> <h2>' + data.title + '</h2> <p>' + data.message + '</p><a href="#">' + formValidateSettings.send_again + '</a>');
+                        formError.html('<img src="/assets/images/icon-error.png" alt="success"> <h2>' + data.title + '</h2> <p>' + data.message + '</p><a href="#">' + formValidateSettings.send_again + '</a>');
                         $form.parent().append(formError);
 
                         setTimeout(function () {

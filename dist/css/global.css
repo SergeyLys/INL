@@ -4945,15 +4945,19 @@ body[data-aos-easing='ease-in-out-quart'] [data-aos],
 
 .list-row li
 {
+    font-family: 'nerissemibold', Roboto, Arial, sans-serif;
+    font-size: 16px;
+
     display: inline-block;
 
     margin-right: 20px;
 }
 
-.list-row li a
+.list-row li a,
+.list-row li p
 {
-    font-family: 'nerissemibold', Roboto, Arial, sans-serif;
-    font-size: 16px;
+    font-family: inherit;
+    font-size: inherit;
 }
 
 .b-contacts
